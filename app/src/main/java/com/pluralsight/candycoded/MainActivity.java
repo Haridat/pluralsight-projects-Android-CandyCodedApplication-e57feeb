@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -84,6 +85,15 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.main, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        Intent InfoIntent = new Intent(this,InfoActivity.class);
+        startActivity(InfoIntent);
+        return super.onOptionsItemSelected(item);
+    }
+
     // ***
     // TODO - Task 1 - Show Store Information Activity
     // ***
@@ -101,4 +111,5 @@ public class MainActivity extends AppCompatActivity {
             db.insert(CandyEntry.TABLE_NAME, null, values);
         }
     }
+
 }
